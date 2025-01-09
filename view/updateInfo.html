@@ -1,0 +1,49 @@
+<style>
+    #updateinfo-wrapper {
+        width: 700px;
+    }
+</style>
+
+<div ng-controller="UpdateInfoController" id="updateinfo-wrapper" class="d-flex justify-content-center align-items-center">
+    <div class="container p-4 d-flex rounded">
+        <div class="login-container flex-grow-1 bg-light text-dark rounded fw-bold ms-2">
+            <div class="d-flex flex-column align-items-center justify-content-center row p-2">
+                <form ng-submit="updateInfo($event)" name="updateInfoForm">
+                    <h2 class="text-center m-2">
+                        Cập nhật thông tin tài khoản
+                    </h2>
+                    <div class="mb-4">
+                        <label class="form-label">Email :</label>
+                        <input type="email" class="form-control fs-5" name="email" ng-model="infoUser.email" disabled />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Birthday :</label>
+                        <input type="date" class="form-control fs-5" name="birthday" ng-model="infoUser.birthday"
+                            value="{{infoUser.birthday | date:'yyyy-MM-dd'}}" required />
+                    </div>
+                    <div ng-show="updateInfoForm.birthday.$invalid && updateInfoForm.birthday.$dirty">
+                        <span class="text-danger">Vui lòng điền ngày sinh của bạn.</span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Gender :</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="nam" name="gender" value="true"
+                                ng-model="infoUser.gender" ng-checked="{{infoUser.gender == 'true'}}" />
+                            <label class="form-check-label" for="nam">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="nu" name="gender" value="false"
+                                ng-model="infoUser.gender" ng-checked="{{infoUser.gender == 'false'}}" />
+                            <label class="form-check-label" for="nu">Nữ</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning w-100 text-light fs-5">
+                        Cập nhật
+                        <i class="fa fa-id-card"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

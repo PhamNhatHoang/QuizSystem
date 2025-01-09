@@ -1,0 +1,48 @@
+<div ng-controller="ExamizeController" id="examize-wrapper" style="min-height: 85vh" class="container mt-5 border mb-4">
+    <h1 class="text-dark">Thời gian: {{formatted_time_remaining}}</h1>
+    <div class="container border border-light p-2">
+        <div class="examize-container">
+            <div class="desc-question d-flex justify-content-between">
+                <div>
+                    <div>
+                        Số điểm câu hỏi này :
+                        {{quizzes[index_question_current].Marks}}
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-dark">
+                Câu {{index_question_current + 1}} :
+                {{quizzes[index_question_current].Text}}
+            </h3>
+            <div id="answer-btn" class="my-5">
+                <div id="answer-btn" class="my-5">
+                    <div ng-repeat="option in quizzes[index_question_current].Answers" class="d-flex my-2 gap-3">
+                        <input type="radio" name="answer" ng-click="selectAnswer($event)" data-id="{{option.Id}}"
+                            ng-checked="{{option_user_list[index_question_current] && option_user_list[index_question_current] === option.Id}}"
+                            class="form-check-input" />
+                        <label class="text-dark form-check-label">{{option.Text}}</label>
+                    </div>
+                </div>
+
+                <div class="control-quizz w-100 d-flex justify-content-end gap-3">
+                    <button ng-click="firstQuestion()" class="btn btn-info">
+                        Đầu
+                    </button>
+                    <button ng-click="prevQuestion()" class="btn btn-info">
+                        Trước
+                    </button>
+                    <button ng-click="nextQuestion()" class="btn btn-info">
+                        Tiếp
+                    </button>
+                    <button ng-click="lastQuestion()" class="btn btn-info">
+                        Cuối
+                    </button>
+                    <button ng-click="save_result()" class="btn btn-success">
+                        <span class="text-light"> Nộp bài </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

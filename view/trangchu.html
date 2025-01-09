@@ -1,0 +1,147 @@
+<div ng-controller="CoursesController" id="wrapper-course">
+    <div class="container row">
+        <div class="col-9 d-flex gap-4 justify-content-center flex-wrap">
+            <div class="row p-3" ng-repeat="quiz in data">
+                <div class="card" style="width: 14rem">
+                    <img src="../../images/{{quiz.Logo}}" class="card-img-top" alt="{{quiz.Logo}}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{quiz.Id}}</h5>
+                        <p class="card-text">{{quiz.Name}}</p>
+                        <a href="#" class="btn btn-warning w-100">Vào Học Free</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="col-3 border border-dark rounded">
+            <aside>
+                <h3 class="text-center">KHÓA HỌC</h3>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Khóa cơ bản 1
+                        </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        Lập trình Android cơ bản
+                                    </li>
+                                    <li class="list-group-item">
+                                        HTML5 và CSS3
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình JavaScript
+                                    </li>
+                                    <li class="list-group-item">
+                                        Cơ sở dữ liệu
+                                    </li>
+                                    <li class="list-group-item">
+                                        Điện toán đám mây
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Khóa cơ bản 2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        Lập trình Android nâng cao
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình Java nâng cao
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình PHP
+                                    </li>
+                                    <li class="list-group-item">
+                                        Quản lý dự án với Agile
+                                    </li>
+                                    <li class="list-group-item">
+                                        Internet Marketing
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Khóa nâng cao 1
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        Thiết kế giao diện trên Android
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình game 2D
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình VB.NET
+                                    </li>
+                                    <li class="list-group-item">SQL Server</li>
+                                    <li class="list-group-item">
+                                        Thiết kế layout
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                                Khóa nâng cao 2
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        Kiểm thử và triển khai ứng dụng Android
+                                    </li>
+                                    <li class="list-group-item">
+                                        Thiết kế web cho điện thoại di động
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình ASP.NET
+                                    </li>
+                                    <li class="list-group-item">
+                                        Xây dựng trang web
+                                    </li>
+                                    <li class="list-group-item">
+                                        Lập trình hướng đối tượng với Java
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

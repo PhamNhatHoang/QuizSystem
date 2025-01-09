@@ -1,0 +1,33 @@
+<div id="wrapper-login" ng-controller="LoginController" class="container rounded border border-dark p-5 mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5 class="title">Đăng nhập Quiz System</h5>
+        <h6 style="cursor: pointer">
+            <a class="fs-italic text-danger" href="#!forgotpassword">
+                Quên mật khẩu</a>
+        </h6>
+    </div>
+
+    <form name="loginForm" ng-submit="login()">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email :</label>
+            <input type="email" class="form-control fs-4" id="email" name="email" placeholder="Nhập email của bạn"
+                required ng-model="email"
+                ng-class="{ 'is-invalid': loginForm.email.$invalid && loginForm.email.$dirty }" />
+            <div class="invalid-feedback" ng-show="loginForm.email.$invalid && loginForm.email.$dirty">
+                Nhập đúng định dạng email.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu : </label>
+            <input type="password" class="form-control fs-4" id="password" placeholder="Nhập mật khẩu" required
+                ng-model="password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            Đăng nhập
+            <i class="far fa-id-card"></i>
+        </button>
+
+        <span class="text-danger" ng-show="error">{{error}}</span>
+    </form>
+</div>

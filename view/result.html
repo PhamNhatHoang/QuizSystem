@@ -1,0 +1,87 @@
+<style>
+    /* Định dạng tùy chỉnh */
+    .wrapper-question {
+        width: 100%;
+    }
+
+    #examize-wrapper {
+        margin-top: 5rem;
+    }
+
+    .btn-option:disabled {
+        cursor: not-allowed !important;
+    }
+
+    .select {
+        background-color: gray !important;
+        color: white !important;
+    }
+
+    .correct {
+        background-color: green !important;
+        color: white !important;
+    }
+
+    .incorrect {
+        background-color: red !important;
+        color: white !important;
+    }
+
+    .no_answer {
+        opacity: 0.5;
+        border: 5px solid gray !important;
+    }
+
+    .border_correct {
+        border: 5px solid green !important;
+    }
+
+    .border_incorrect {
+        border: 5px solid red !important;
+    }
+</style>
+
+<div ng-controller="ResultController" id="examize-wrapper"
+    class="d-flex flex-column justify-content-center align-items-center gap-3">
+    <h1 class="text-dark">Số điểm của bạn là: {{user_choses.score}} / {{maxScore}}</h1>
+    <!-- Phần hiển thị kết quả câu hỏi -->
+    <div class="wrapper-question border border-light p-2 rounded" ng-repeat="q in questions" ng-class="{
+                        'no_answer' : !user_choses.answer_user[$index],
+                        'border_correct' : user_choses.answer_user[$index] &&  user_choses.answer_user[$index] == q.AnswerId,
+                        'border_incorrect' :user_choses.answer_user[$index] &&  user_choses.answer_user[$index] !== q.AnswerId
+                        }">
+        <div class="examize-container">
+            <div class="desc-question d-flex justify-content-between">
+                <div>
+                    <div>Số điểm câu hỏi này: {{q.Marks}}</div>
+                </div>
+                <!-- Kiểm tra câu trả lời của người dùng có đúng không -->
+                <h2 ng-show="user_choses.answer_user[$index] &&  user_choses.answer_user[$index] == q.AnswerId"
+                    class="text-success">
+                    Bạn Đã Chọn Đúng
+                </h2>
+                <h2 ng-show="user_choses.answer_user[$index] &&  user_choses.answer_user[$index] !== q.AnswerId"
+                    class="text-danger">
+                    Bạn Chọn Không Đúng
+                </h2>
+                <h2 ng-show="!user_choses.answer_user[$index]" class="text-warning">
+                    Bạn Chưa Chọn Câu Trả Lời
+                </h2>
+
+            </div>
+            <div>{{q.Text}}</div>
+            <!-- Button chọn câu trả lời -->
+            <div id="answer-btn" class="my-5">
+                <div ng-repeat="option in q.Answers">
+                    <button class="btn btn-option bg-light my-2 w-100 text-start" ng-class="{
+                                    'select': user_choses.answer_user[$parent.$index] && option.Id == user_choses.answer_user[$parent.$index]  ,
+                                    'correct': user_choses.answer_user[$parent.$index]  && option.Id == q.AnswerId,
+                                    'incorrect' : user_choses.answer_user[$parent.$index]  && option.Id !== q.AnswerId && option.Id !== user_choses.answer_user[$parent.$index]
+                                }">
+                        {{option.Text}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div ng-controller="RegisterController" id="register-wrapper"
+    class="d-flex justify-content-center align-items-center border border-dark my-2">
+    <div class="container p-4 d-flex rounded">
+        <div class="login-container flex-grow-1 bg-light text-dark rounded fw-bold ms-2">
+            <div class="d-flex flex-column align-items-center justify-content-center row p-2">
+                <form name="registerForm" ng-submit="register()">
+                    <h2 class="text-center m-2">
+                        Đăng kí HỆ THỐNG QUIZ SYSTEM
+                    </h2>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tên người dùng :</label>
+                        <input type="text" class="form-control fs-5" id="username" name="username"
+                            placeholder="Nhập tên người dùng" ng-model="username" required
+                            ng-class="{ 'is-invalid': registerForm.username.$invalid && registerForm.username.$dirty }" />
+                        <div ng-show="registerForm.username.$invalid && registerForm.username.$dirty">
+                            <span class="text-danger">Vui lòng điền tên người dùng.</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật khẩu :</label>
+                        <input type="password" class="form-control fs-5" id="password" name="password"
+                            placeholder="Nhập mật khẩu" required ng-model="password"
+                            ng-change="validatePasswordMatch()" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Xác nhận mật khẩu :</label>
+                        <input type="password" class="form-control fs-5" id="confirmPassword" name="confirmPassword"
+                            placeholder="Nhập mật khẩu" required ng-model="confirmPassword"
+                            ng-change="validatePasswordMatch()" />
+                        <div
+                            ng-show="registerForm.confirmPassword.$error.passwordMismatch && registerForm.confirmPassword.$dirty">
+                            <span class="text-danger">Mật khẩu không khớp.</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">Họ và tên :</label>
+                        <input type="text" class="form-control fs-5" id="fullname" name="fullname"
+                            placeholder="Nhập họ và tên" ng-model="fullname" required
+                            ng-class="{ 'is-invalid': registerForm.fullname.$invalid && registerForm.fullname.$dirty }" />
+                        <div ng-show="registerForm.fullname.$invalid && registerForm.fullname.$dirty">
+                            <span class="text-danger">Vui lòng điền họ và tên.</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email :</label>
+                        <input type="email" class="form-control fs-5" id="email" name="email"
+                            placeholder="Nhập email của bạn" required ng-model="email"
+                            ng-class="{ 'is-invalid': registerForm.email.$invalid && registerForm.email.$dirty }" />
+                        <div ng-show="registerForm.email.$invalid && registerForm.email.$dirty">
+                            <span class="text-danger">Nhập đúng định dạng email.</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Giới tính :</label>
+                        <select class="form-select fs-5" id="gender" name="gender" ng-model="gender" required>
+                            <option value="" disabled selected>Chọn giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthday" class="form-label">Ngày sinh :</label>
+                        <input type="date" class="form-control fs-5" id="birthday" name="birthday" required
+                            ng-model="birthday" />
+                    </div>
+                    <button class="btn btn-warning w-100 text-light fs-5">
+                        Đăng ký
+                        <i class="fa-regular fa-id-card"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

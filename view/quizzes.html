@@ -1,0 +1,15 @@
+<div ng-controller="QuizzesController" id="quizzes-wrapper" class="d-flex justify-content-center align-items-center">
+    <div class="container d-flex gap-4 justify-content-center flex-wrap border border-light">
+        <div class="row p-3" ng-repeat="quiz in data">
+            <div class="card" style="width: 14rem">
+                <img src="../../images/{{quiz.Logo}}" class="card-img-top" alt="{{quiz.Logo}}" />
+                <div class="card-body">
+                    <h5 class="card-title">{{quiz.Id}}</h5>
+                    <p class="card-text">{{quiz.Name}}</p>
+                    <a href="#!examize?id={{quiz.Id}}" class="btn btn-primary w-100">Vào Làm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
